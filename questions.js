@@ -1,20 +1,24 @@
 var selectElementsStartingWithA = function(array) {
-    var selectTheElements(elem) {
+    var selectTheElements = function(elem) {
         return elem.charAt(0) == 'a';
     }
     return array.filter(selectTheElements);
 }
 
+
 var selectElementsStartingWithVowel = function(array) {
     var vowels = ['a', 'e', 'i', 'o', 'u'];
-    var selectTheElements(elem) {
-
+    var selectTheElements = function(elem) {
+        return vowels.indexOf(elem.charAt(0)) > -1;
     }
-    return 'Write your method here';
+    return array.filter(selectTheElements);
 }
 
 var removeNullElements = function(array) {
-    return 'Write your method here';
+    var removeNullItem = function(item) {
+        if(item == null) return array.slice(array.indexOf(item), 1);
+    }
+    return array.filter(removeNullItem)
 }
 
 var removeNullAndFalseElements = function(array) {
