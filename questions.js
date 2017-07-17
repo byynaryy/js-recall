@@ -1,32 +1,38 @@
 var selectElementsStartingWithA = function(array) {
-    var selectTheElements = function(elem) {
+    var selectTheElement = function(elem) {
         return elem.charAt(0) == 'a';
     }
-    return array.filter(selectTheElements);
+    return array.filter(selectTheElement);
 }
 
 
 var selectElementsStartingWithVowel = function(array) {
     var vowels = ['a', 'e', 'i', 'o', 'u'];
-    var selectTheElements = function(elem) {
+    var selectTheElement = function(elem) {
         return vowels.indexOf(elem.charAt(0)) > -1;
     }
-    return array.filter(selectTheElements);
+    return array.filter(selectTheElement);
 }
 
 var removeNullElements = function(array) {
-    var removeNullItem = function(item) {
-        if(item == null) return array.slice(array.indexOf(item), 1);
+    var removeTheElement = function(elem) {
+        return elem != null;
     }
-    return array.filter(removeNullItem)
+    return array.filter(removeTheElement)
 }
 
 var removeNullAndFalseElements = function(array) {
-    return 'Write your method here';
+    var removeTheElement = function(elem) {
+        return elem != null &&  elem !== false;
+    }
+    return array.filter(removeTheElement)
 }
 
 var reverseWordsInArray = function(array) {
-    return 'Write your method here';
+    var reverseWord = function(word) {
+        return word.split('').reverse().join('');
+    }
+    return array.map(reverseWord);
 }
 
 var everyPossiblePair = function(array) {
@@ -34,27 +40,39 @@ var everyPossiblePair = function(array) {
 }
 
 var allElementsExceptFirstThree = function(array) {
-    return 'Write your method here';
+    return array.slice(3);
 }
 
 var addElementToBeginning = function(array, element) {
-    return 'Write your method here';
+    array.unshift(element);
+    return array;
 }
 
 var sortByLastLetter = function(array) {
-    return 'Write your method here';
+    var  compareLastLetter = function(a, b) {
+        if(a.slice(-1) < b.slice(-1)) {
+            return -1;
+        }if(a.slice(-1) > b.slice(-1)) {
+            return 1;
+        }return 0;
+    }
+    return array.sort(compareLastLetter);
 }
 
 var getFirstHalf = function(string) {
-    return 'Write your method here';
+    return string.slice(0, Math.round(string.length / 2));
 }
 
 var makeNegative = function(number) {
-    return 'Write your method here';
+    return number < 0? number: -number;
 }
 
 var numberOfPalindromes = function(array) {
-    return 'Write your method here';
+    var isPalindrome = function(word) {
+        var wrd = word.split('').reverse().join('');
+        if(wrd == word) {return 1};
+    }
+    return 
 }
 
 var shortestWord = function(array) {
